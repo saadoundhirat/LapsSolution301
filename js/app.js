@@ -70,7 +70,10 @@ function renderKeywordOptions() {
     // get option by its class and delete it after we done to make sure its render for one time
     let $optionkey = $('.option').clone();
     $optionkey.text(item);
-    $optionkey.attr('value' , item);
+    $optionkey.attr({
+      value:`${item}`,
+      class:`${item}`
+    });
     $('select').append($optionkey);
     $optionkey.removeClass('option');
     // or we can use this way :
