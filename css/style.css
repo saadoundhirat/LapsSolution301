@@ -3,26 +3,23 @@
 @import 'layout.css';
 @import 'modules.css';
 
-header > h1{
+header h1{
     font-size: 4rem;
     padding: 0.8rem;
     font-weight: bold;
     text-align: center;
 } 
 header select {
-    margin-left: 400px;
+    margin-left: 25rem;
     font-family: 'Dancing Script', cursive;
     font-size: 1.5rem;
     margin-top: 3rem ;
-    width: 15rem;
     padding: 0.9rem;
     border-radius: 5px;
     border: 2px solid #d9643a;
     text-align: center;
     background: rgba(0, 0, 0, 0.3);
     color: #fff;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
-    
 }
 /* defualt select */
 header select:first-child {
@@ -78,6 +75,7 @@ footer {
     text-align: center;
     padding: 0 5rem;
     font-size: 1.5rem;
+    border-top: 0.3rem solid var(--text-color);
 }
 /* ///////////////////////////////////////////////////////////////////////////////// */
  /* to remove first div item 
@@ -91,3 +89,29 @@ main div:first-child {
 /* .hide {
     display: none;
 } */
+
+/* media query */
+@media (max-width:500px){
+    main {
+        width: 100%;
+    }
+    .container {
+        width: 25rem;
+        margin: 0 auto;
+    }
+    main div {
+        margin: 1rem 2.5rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        text-align: left;
+        margin-left: 5rem;
+    }
+    header select {
+        margin-left: 5rem;
+    }
+    footer {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
