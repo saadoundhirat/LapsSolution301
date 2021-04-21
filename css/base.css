@@ -1,0 +1,22 @@
+:root {
+    --bg-dark:#343535;
+    --bg-color:#454647;
+    --text-color: #d9643a; 
+    --hover-color:#bc4c24;
+    --focus: #0044ca;
+    --text-white:#fff;
+}
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Dancing Script', cursive;
+    background-color: var(--bg-color);
+}
+a {
+    text-decoration: none;
+    color: var(--text-white);
+}
+

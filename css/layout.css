@@ -1,0 +1,9 @@
+/* here we put positions and allignments  */
+
+.container {
+    color: var(--text-color);
+    margin: 0 auto;
+    padding: 1rem 0;
+    background-color: var(--bg-dark);
+    width: 67rem ;
+}
