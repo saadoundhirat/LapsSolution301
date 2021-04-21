@@ -94,5 +94,13 @@ function filteraction() {
   //another soultion to display selected item is to give all  the option inside the div  with value === to the selected option aclass has the display none and then we remove that class from the selected option
   // $('main').children().addClass( 'hide');
   // $(`.${selectedOption}`).removeClass('hide');
+
+  //to make the horns data render again when we click the first option//
+  if (selectedOption === 'default'){
+    $('div').show();
+  }
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
