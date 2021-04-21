@@ -87,23 +87,21 @@ function renderKeywordOptions() {
 $('select').on('change' , filteraction);
 function filteraction() {
   let selectedOption = $(this).val(); //has the option value
+  if (selectedOption === 'default'){
+    //to make the horns data render again when we click the first option//
+    $('div').show();
+  }else {
   // so what happens here is that (this) is refer to the parents and this value method refer to the selected value in the select tag
   // also can be writtne like this
   // let select = $(this).children('option:selected').val();
-  console.log(selectedOption);
-  $('div').hide();
-  $(`.${selectedOption}`).show();
+    $('div').hide();
+    $(`.${selectedOption}`).show();
+    //another soultion to display selected item is to give all  the option inside the div  with value === to the selected option aclass has the display none and then we remove that class from the selected option
+    // $('main').children().addClass( 'hide');
+    // $(`.${selectedOption}`).removeClass('hide');
 
-  //another soultion to display selected item is to give all  the option inside the div  with value === to the selected option aclass has the display none and then we remove that class from the selected option
-  // $('main').children().addClass( 'hide');
-  // $(`.${selectedOption}`).removeClass('hide');
-
-  //to make the horns data render again when we click the first option//
-  if (selectedOption === 'default'){
-    $('div').show();
   }
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
