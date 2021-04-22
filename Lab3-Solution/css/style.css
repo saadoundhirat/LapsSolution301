@@ -1,0 +1,147 @@
+@import 'reset.css';
+@import 'base.css';
+@import 'layout.css';
+@import 'modules.css';
+
+header {
+    position: relative;
+}
+header h1{
+    font-size: 4rem;
+    padding: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 18rem;
+} 
+header select {
+    margin-left: 28rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    margin-top: 3rem ;
+    padding: 0.9rem;
+    border-radius: 5px;
+    border: 2px solid #d9643a;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+/* defualt select */
+header select:first-child {
+    font-size: 0.5rem;
+}
+
+header select option {
+    background-color: var(--bg-dark);
+    font-size: 1rem;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin: 0 1rem;
+}
+.pages {
+    display: flex;
+    position: absolute;
+    top:10.5rem;
+    left: 8rem;
+}
+.pages .btn {
+    margin-left: 0.5rem;
+    padding: 0.8rem;
+    width: 5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: var(--text-white);
+        font-family: 'Dancing Script', cursive;
+    border: 2px solid #d9643a;  
+}
+.pages .btn:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+.pages h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.8rem;
+}
+.selectTwoPosition {
+    position: absolute;
+    top: 6.54rem;
+    left: 16rem;
+}
+/* main section */
+
+main div {
+
+  padding: 1rem;
+  margin-left: 2.9rem;
+  margin-top: 1rem;
+  width:18rem;
+  height: 18rem;
+  /* float: left; */
+  border: 0.2rem solid var(--text-color);
+  border-radius: 2rem;
+}
+
+main div h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+main div p {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+
+main div img {
+    width: 100%;
+    height: 8rem;
+    border-radius: 1rem;
+}
+
+footer {
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    text-align: center;
+    padding: 0 5rem;
+    font-size: 1.5rem;
+    border-top: 0.3rem solid var(--text-color);
+}
+/* ///////////////////////////////////////////////////////////////////////////////// */
+ /* to remove first div item 
+ but we also can delete it from the dom and this is what i have done so no need to do this here 
+main div:first-child {
+    display: none;
+} */
+
+
+/* class hide if we want to use hide way at hide all the divs */
+/* .hide {
+    display: none;
+} */
+
+/* media query */
+@media (max-width: 500px){
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+    main div {
+        margin: 1rem 2.5rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        text-align: left;
+        margin-left: 2rem;
+    }
+    header select {
+        margin-left: 3rem;
+    }
+    footer {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
