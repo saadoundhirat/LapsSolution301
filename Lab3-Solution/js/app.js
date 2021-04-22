@@ -4,6 +4,8 @@ const objectsOneArray = [];
 const objectsTwoArray= [];
 const jsonOnekeywordArray = [];
 const jsonTwokeywordArray = [];
+let workingPageId = 'buttonOne';
+
 
 // CONSTRUCTOR
 function Horns (item) {
@@ -66,6 +68,7 @@ function afterReadJsonTwo (objectData){
 // RENDER BASED ON SELECTED BUTTON (PAGE):
 $('#buttonOne').on('click' , renderPageOne);
 function renderPageOne (){
+  workingPageId = $('#buttonOne').attr('id');// GET WORKNIG PAPGE ID FOR SORTING
   $('main').children().remove();
   objectsOneArray.forEach((element) => {
     element.renderToHtml();
@@ -77,6 +80,7 @@ function renderPageOne (){
 
 $('#buttonTwo').on('click' ,renderPageTwo);
 function renderPageTwo (){
+  workingPageId = $('#buttonTwo').attr('id');// GET WORKNIG PAPGE ID FOR SORTING
   $('main').children().remove();
   objectsTwoArray.forEach((element) => {
     element.renderToHtml();
@@ -92,4 +96,48 @@ function renderOptions(keyWords) {
     let filterMergedTemplate = Mustache.render(template, object);
     $('#filterSelect').append(filterMergedTemplate);
   });
+}
+
+// FILTER BASED ON SELECT ITEMS :
+$('#filterSelect').on('change' , filterAction);
+function filterAction() {
+  let selectValue = $(this).val();// THIS IS REFERS TO THE SELECT ELEMENT CHILDS
+  if (selectValue === 'default'){
+    $('div').show();
+  }else {
+    $('main').children('div').hide();
+    $(`.${selectValue}`).show();
+  }
+}
+
+
+// SORTING BASED ON (TITEL AND #NUMBER OF HORNS)
+$('#sortSelect').on('change' , sortinItems);
+function sortinItems() {
+  let sortSelectValue = $(this).val();// HOLD SORT SELECT VALUE (defult / titel /numberofhorns)
+  if(sortSelectValue === 'default' && workingPageId === 'buttonOne'){
+    $('main').children('div').remove();
+    objectsOneArray.forEach((element) => {
+      element.renderToHtml();
+    });
+  }else if(sortSelectValue === 'default' && workingPageId === 'buttonTwo'){
+    $('main').children('div').remove();
+    objectsTwoArray.forEach((element) => {
+      element.renderToHtml();
+    });
+  }else if (sortSelectValue ==='title' && workingPageId ==='buttonOne'){
+    objectsOneArray.sort((a,b) => {
+      if(a.title.toUpperCase() < b.title.toUpperCase()){
+        return -1;
+      }else if(a.title.toUpperCase() > b.title.toUpperCase()){
+        return 1;
+      }else {
+        return 0;
+      }
+    });
+    $('main').children('div').remove();
+    objectsOneArray.forEach((element) => {
+      element.renderToHtml();
+    });
+  }
 }

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script id="mustachTemplate" type="text/x-tmpl-mustache">
-        <div>
+        <div class="{{keyword}}">
         <h2>{{title}}</h2>
         <img src="{{image_url}}" alt="">
         <p>{{description}}</p>
@@ -33,6 +33,8 @@
       </select>
       <select id="sortSelect" class="selectTwoPosition">
         <option value="default" class="option">Sort By:</option>
+        <option value="title" class="option">Title</option>
+        <option value="numberofhorns" class="option">Number Of Horns</option>
       </select>
     </header>
     <!-- here is what will changing -->
