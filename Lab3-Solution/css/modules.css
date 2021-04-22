@@ -1,1 +1,31 @@
 /* here is classes and and element selected by these classes */
+.pages {
+    display: flex;
+    position: absolute;
+    top:10.5rem;
+    left: 8rem;
+}
+.pages .btn {
+    margin-left: 0.5rem;
+    padding: 0.8rem;
+    width: 5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: var(--text-white);
+        font-family: 'Dancing Script', cursive;
+    border: 2px solid #d9643a;  
+}
+.pages .btn:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+.pages h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.8rem;
+}
+.selectTwoPosition {
+    position: absolute;
+    top: 6.54rem;
+    left: 16rem;
+}

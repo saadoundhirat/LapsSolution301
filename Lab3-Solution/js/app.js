@@ -5,7 +5,7 @@ const objectsTwoArray= [];
 const jsonOnekeywordArray = [];
 const jsonTwokeywordArray = [];
 let workingPageId = 'buttonOne';
-
+let selectValueForSorting = 'default';
 
 // CONSTRUCTOR
 function Horns (item) {
@@ -18,11 +18,6 @@ function Horns (item) {
 
 // RENDER FUNCTION
 Horns.prototype.renderToHtml = function() {
-  let htmlTemplat =$('#mustachTemplate').html();
-  let mergedHtmlObject = Mustache.render(htmlTemplat , this);
-  $('main').append(mergedHtmlObject);
-};
-Horns.prototype.renderTotml = function() {
   let htmlTemplat =$('#mustachTemplate').html();
   let mergedHtmlObject = Mustache.render(htmlTemplat , this);
   $('main').append(mergedHtmlObject);
@@ -101,7 +96,8 @@ function renderOptions(keyWords) {
 // FILTER BASED ON SELECT ITEMS :
 $('#filterSelect').on('change' , filterAction);
 function filterAction() {
-  let selectValue = $(this).val();// THIS IS REFERS TO THE SELECT ELEMENT CHILDS
+  let selectValue = $(this).val();// THIS IS REFERS TO THE SELECT ELEMENT CHILDS => EVENT
+  selectValueForSorting = selectValue;
   if (selectValue === 'default'){
     $('div').show();
   }else {
@@ -109,7 +105,6 @@ function filterAction() {
     $(`.${selectValue}`).show();
   }
 }
-
 
 // SORTING BASED ON (TITEL AND #NUMBER OF HORNS)
 $('#sortSelect').on('change' , sortinItems);
@@ -125,7 +120,7 @@ function sortinItems() {
     objectsTwoArray.forEach((element) => {
       element.renderToHtml();
     });
-  }else if (sortSelectValue ==='title' && workingPageId ==='buttonOne'){
+  }else if (sortSelectValue ==='title' && workingPageId ==='buttonOne'){ // SORT FOR PAGE 1
     objectsOneArray.sort((a,b) => {
       if(a.title.toUpperCase() < b.title.toUpperCase()){
         return -1;
@@ -139,5 +134,71 @@ function sortinItems() {
     objectsOneArray.forEach((element) => {
       element.renderToHtml();
     });
+    if (selectValueForSorting === 'default'){
+      $('div').show();
+    }else {
+      $('main').children('div').hide();
+      $(`.${selectValueForSorting}`).show();
+    }
+  }else if (sortSelectValue ==='title' && workingPageId ==='buttonTwo'){ // SORT FOR PAGE 1
+    objectsTwoArray.sort((a,b) => {
+      if(a.title.toUpperCase() < b.title.toUpperCase()){
+        return -1;
+      }else if(a.title.toUpperCase() > b.title.toUpperCase()){
+        return 1;
+      }else {
+        return 0;
+      }
+    });
+    $('main').children('div').remove();
+    objectsTwoArray.forEach((element) => {
+      element.renderToHtml();
+    });
+    if (selectValueForSorting === 'default'){
+      $('div').show();
+    }else {
+      $('main').children('div').hide();
+      $(`.${selectValueForSorting}`).show();
+    }
+  }else if (sortSelectValue ==='numberofhorns' && workingPageId ==='buttonOne'){ // SORT FOR PAGE 2
+    objectsOneArray.sort((a,b) => {
+      if(a.horns > b.horns){
+        return -1;
+      }else if(a.horns < b.horns){
+        return 1;
+      }else {
+        return 0;
+      }
+    });
+    $('main').children('div').remove();
+    objectsOneArray.forEach((element) => {
+      element.renderToHtml();
+    });
+    if (selectValueForSorting === 'default'){
+      $('div').show();
+    }else {
+      $('main').children('div').hide();
+      $(`.${selectValueForSorting}`).show();
+    }
+  }else if (sortSelectValue ==='numberofhorns' && workingPageId ==='buttonTwo'){ // SORT FOR PAGE 2
+    objectsTwoArray.sort((a,b) => {
+      if(a.horns > b.horns){
+        return -1;
+      }else if(a.horns < b.horns){
+        return 1;
+      }else {
+        return 0;
+      }
+    });
+    $('main').children('div').remove();
+    objectsTwoArray.forEach((element) => {
+      element.renderToHtml();
+    });
+    if (selectValueForSorting === 'default'){
+      $('div').show();
+    }else {
+      $('main').children('div').hide();
+      $(`.${selectValueForSorting}`).show();
+    }
   }
-}
+}// end function
