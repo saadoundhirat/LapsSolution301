@@ -40,7 +40,7 @@ function afterReadJsonOne (objectData){
   objectData.forEach(element => {
     let newObject = new Horns (element);
     newObject.renderToHtml(); // RENDER THE FIRST JSON OBJECTS FIRST
-    objectsOneArray.push(newObject);
+    objectsOneArray.push(newObject);//
     //ForKeyWords
     if (!jsonOnekeywordArray.includes(newObject.keyword)){
       jsonOnekeywordArray.push(newObject.keyword);
